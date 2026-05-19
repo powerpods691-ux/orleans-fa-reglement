@@ -1,4 +1,4 @@
-// Écran de chargement uniquement au premier chargement de la page (pas au changement de page)
+// Écran de chargement uniquement au premier chargement
 let isFirstLoad = sessionStorage.getItem('firstLoadDone') === null;
 
 window.addEventListener('load', function() {
@@ -15,23 +15,41 @@ window.addEventListener('load', function() {
     }
 });
 
-// Barre de défilement qui suit le rythme de scroll
+// Barre de défilement
 window.addEventListener('scroll', function() {
     const scrollProgress = document.getElementById('scrollProgress');
-    
-    // Calculer le pourcentage de défilement
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    // Mettre à jour la largeur de la barre en temps réel
     scrollProgress.style.width = scrollPercent + '%';
 });
+
+// Menu hamburger mobile
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const sidebar = document.querySelector('.sidebar');
+
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        sidebar.classList.toggle('active');
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            sidebar.classList.remove('active');
+        });
+    });
+}
 
 // Navigation active
 document.addEventListener('DOMContentLoaded', function() {
     updateActiveLink();
     addScrollAnimations();
+    initLexique();
 });
 
 function updateActiveLink() {
@@ -68,4 +86,33 @@ function addScrollAnimations() {
         section.style.transition = 'all 0.6s ease';
         observer.observe(section);
     });
+}
+
+// Lexique Tabs
+function initLexique() {
+    const categoryButtons = document.querySelectorAll('.lexique-sidebar button');
+    const sections = document.querySelectorAll('.lexique-section');
+
+    if (categoryButtons.length > 0) {
+        // Activer la première section par défaut
+        if (sections.length > 0) {
+            sections[0].classList.add('active');
+            categoryButtons[0].classList.add('active');
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Désactiver tous
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+
+                // Activer le sélectionné
+                this.classList.add('active');
+                const index = Array.from(categoryButtons).indexOf(this);
+                if (sections[index]) {
+                    sections[index].classList.add('active');
+                }
+            });
+        });
+    }
 }

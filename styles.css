@@ -460,6 +460,46 @@ body {
     font-weight: bold;
 }
 
+/* === LEXIQUE STYLES === */
+.lexique-list {
+    display: grid;
+    gap: 15px;
+}
+
+.lexique-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    padding: 15px;
+    background-color: rgba(0, 102, 255, 0.05);
+    border-left: 3px solid #0066FF;
+    border-radius: 4px;
+    align-items: start;
+}
+
+.lexique-term {
+    font-weight: 700;
+    color: #0066FF;
+    font-size: 14px;
+}
+
+.lexique-definition {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .lexique-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .lexique-term {
+        margin-bottom: 5px;
+    }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .sidebar {

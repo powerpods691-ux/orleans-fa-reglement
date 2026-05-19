@@ -1,24 +1,35 @@
-// Écran de chargement uniquement au premier chargement de la page
-let isFirstLoad = true;
+// Écran de chargement uniquement au premier chargement de la page (pas au changement de page)
+let isFirstLoad = sessionStorage.getItem('firstLoadDone') === null;
 
 window.addEventListener('load', function() {
     if (isFirstLoad) {
         const loaderContainer = document.getElementById('loaderContainer');
         setTimeout(() => {
             loaderContainer.style.display = 'none';
+            sessionStorage.setItem('firstLoadDone', 'true');
             isFirstLoad = false;
         }, 3000);
+    } else {
+        const loaderContainer = document.getElementById('loaderContainer');
+        loaderContainer.style.display = 'none';
     }
 });
 
-// Barre de défilement EN HAUT
+// Barre de défilement circulaire - avance au défilement
 window.addEventListener('scroll', function() {
     const scrollProgress = document.getElementById('scrollProgress');
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    scrollProgress.style.scaleX = scrollPercent / 100;
+    // Rotation du cercle basée sur le défilement
+    scrollProgress.style.transform = `rotate(${(scrollPercent / 100) * 360}deg)`;
+    
+    if (scrollPercent > 0) {
+        scrollProgress.classList.add('active');
+    } else {
+        scrollProgress.classList.remove('active');
+    }
 });
 
 // Navigation active

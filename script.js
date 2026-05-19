@@ -15,14 +15,16 @@ window.addEventListener('load', function() {
     }
 });
 
-// Barre de défilement simple EN HAUT A GAUCHE - avance au défilement
+// Barre de défilement qui suit le rythme de scroll
 window.addEventListener('scroll', function() {
     const scrollProgress = document.getElementById('scrollProgress');
+    
+    // Calculer le pourcentage de défilement
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    // Barre qui avance de gauche à droite depuis le haut gauche
+    // Mettre à jour la largeur de la barre en temps réel
     scrollProgress.style.width = scrollPercent + '%';
 });
 

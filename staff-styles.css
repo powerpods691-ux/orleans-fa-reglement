@@ -30,11 +30,11 @@
     line-height: 1.8;
 }
 
-/* Staff Grid - All in one grid */
+/* Staff Grid - Petite grille compacte */
 .staff-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
     margin-bottom: 50px;
 }
 
@@ -42,8 +42,8 @@
 .staff-card {
     background-color: #1a1a1a;
     border: 1px solid #333;
-    border-radius: 8px;
-    padding: 30px 20px;
+    border-radius: 6px;
+    padding: 20px 15px;
     text-align: center;
     position: relative;
     transition: all 0.3s ease;
@@ -53,7 +53,7 @@
 .staff-card:hover {
     border-color: #0066FF;
     background-color: #252525;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 /* Hover Bar Animation */
@@ -62,7 +62,7 @@
     bottom: 0;
     left: 0;
     width: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
     animation: none;
     transition: none;
@@ -88,13 +88,13 @@
 }
 
 .staff-avatar {
-    font-size: 60px;
-    margin-bottom: 15px;
+    font-size: 40px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF8C00, #FFB84D);
     margin-left: auto;
@@ -102,21 +102,21 @@
 }
 
 .staff-name {
-    font-size: 20px;
+    font-size: 15px;
     color: #e0e0e0;
-    margin: 15px 0 10px 0;
+    margin: 10px 0 8px 0;
     font-weight: 700;
 }
 
 .staff-role {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 4px 10px;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     border: 1px solid;
 }
 
@@ -165,8 +165,8 @@
 
 .staff-discord {
     color: #888;
-    font-size: 13px;
-    margin-top: 10px;
+    font-size: 11px;
+    margin-top: 8px;
 }
 
 /* Contact Section */
@@ -217,22 +217,22 @@
     }
 
     .staff-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
     }
 
     .staff-card {
-        padding: 20px 15px;
+        padding: 15px 10px;
     }
 
     .staff-avatar {
-        width: 80px;
-        height: 80px;
-        font-size: 40px;
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
     }
 
     .staff-name {
-        font-size: 16px;
+        font-size: 13px;
     }
 
     .staff-page {

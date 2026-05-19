@@ -272,11 +272,24 @@ body {
 
 .menu-principal ul {
     list-style: none;
+    display: grid;
+    grid-auto-flow: row;
 }
 
 .menu-principal li {
     margin-bottom: 8px;
+    display: grid;
 }
+
+/* Force l'ordre du menu - Solution définitive */
+.menu-principal li:nth-child(1) { order: 1; }  /* Accueil */
+.menu-principal li:nth-child(2) { order: 2; }  /* Lexique */
+.menu-principal li:nth-child(3) { order: 3; }  /* Règlement Général */
+.menu-principal li:nth-child(4) { order: 4; }  /* Règles de Roleplay */
+.menu-principal li:nth-child(5) { order: 5; }  /* Sanctions */
+.menu-principal li:nth-child(6) { order: 6; }  /* Secteur Légal */
+.menu-principal li:nth-child(7) { order: 7; }  /* Secteur Illégal */
+.menu-principal li:nth-child(8) { order: 8; }  /* Contacts & Staff */
 
 .nav-link {
     display: flex;

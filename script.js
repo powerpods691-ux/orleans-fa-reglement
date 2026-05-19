@@ -15,21 +15,15 @@ window.addEventListener('load', function() {
     }
 });
 
-// Barre de défilement simple EN HAUT A DROITE - avance au défilement
+// Barre de défilement simple EN HAUT A GAUCHE - avance au défilement
 window.addEventListener('scroll', function() {
     const scrollProgress = document.getElementById('scrollProgress');
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    // Barre qui avance de gauche à droite
+    // Barre qui avance de gauche à droite depuis le haut gauche
     scrollProgress.style.width = scrollPercent + '%';
-    
-    if (scrollPercent > 0) {
-        scrollProgress.classList.add('active');
-    } else {
-        scrollProgress.classList.remove('active');
-    }
 });
 
 // Navigation active

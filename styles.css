@@ -132,7 +132,7 @@ body {
     align-items: center;
     position: fixed;
     top: 20px;
-    left: 20px;
+    right: 20px;
     width: 45px;
     height: 45px;
     background-color: rgba(0, 102, 255, 0.15);
@@ -149,18 +149,62 @@ body {
     background-color: #0066FF;
     border-radius: 1px;
     transition: all 0.3s ease;
+    position: absolute;
 }
 
+.mobile-menu-toggle span:nth-child(1) {
+    top: 12px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 21px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 30px;
+}
+
+/* État normal - 3 traits */
+.mobile-menu-toggle:not(.active) span:nth-child(1) {
+    width: 20px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.mobile-menu-toggle:not(.active) span:nth-child(2) {
+    width: 20px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.mobile-menu-toggle:not(.active) span:nth-child(3) {
+    width: 20px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+/* État actif - Croix (X) */
 .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
+    width: 24px;
+    transform: rotate(45deg) translate(0, 8px);
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -1px;
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    width: 0;
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    width: 24px;
+    transform: rotate(-45deg) translate(0, -8px);
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -1px;
 }
 
 /* Sidebar */
@@ -634,6 +678,217 @@ body {
     margin-left: 10px;
 }
 
+/* === STAFF PAGE STYLES === */
+
+.staff-page {
+    padding: 40px;
+}
+
+.staff-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.staff-badge {
+    background-color: rgba(255, 215, 0, 0.15);
+    border: 1px solid #FFD700;
+    color: #FFD700;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.staff-intro {
+    color: #aaa;
+    margin-bottom: 40px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Staff Grid - Petite grille compacte */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+/* Staff Cards */
+.staff-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 20px 15px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.staff-card:hover {
+    border-color: #0066FF;
+    background-color: #252525;
+    transform: translateY(-2px);
+}
+
+/* Hover Bar Animation */
+.staff-card-hover-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    animation: none;
+    transition: none;
+}
+
+.staff-card:hover .staff-card-hover-bar {
+    animation: expandBar 0.8s ease-in-out infinite;
+}
+
+@keyframes expandBar {
+    0% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+.staff-avatar {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF8C00, #FFB84D);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.staff-name {
+    font-size: 15px;
+    color: #e0e0e0;
+    margin: 10px 0 8px 0;
+    font-weight: 700;
+}
+
+.staff-role {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    border: 1px solid;
+}
+
+/* Role Colors */
+.staff-role.owner {
+    background-color: rgba(255, 215, 0, 0.15);
+    color: #FFD700;
+    border-color: #FFD700;
+}
+
+.staff-role.co-owner {
+    background-color: rgba(255, 165, 0, 0.15);
+    color: #FFA500;
+    border-color: #FFA500;
+}
+
+.staff-role.gerant {
+    background-color: rgba(0, 255, 136, 0.15);
+    color: #00FF88;
+    border-color: #00FF88;
+}
+
+.staff-role.admin {
+    background-color: rgba(0, 102, 255, 0.15);
+    color: #0066FF;
+    border-color: #0066FF;
+}
+
+.staff-role.moderator {
+    background-color: rgba(100, 150, 255, 0.15);
+    color: #6496FF;
+    border-color: #6496FF;
+}
+
+.staff-role.helper {
+    background-color: rgba(100, 200, 255, 0.15);
+    color: #64C8FF;
+    border-color: #64C8FF;
+}
+
+.staff-role.support {
+    background-color: rgba(150, 150, 255, 0.15);
+    color: #9696FF;
+    border-color: #9696FF;
+}
+
+.staff-discord {
+    color: #888;
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #0066FF;
+    margin-bottom: 30px;
+}
+
+.contact-section h2 {
+    font-size: 24px;
+    color: #0066FF;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.contact-section ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.contact-section li {
+    margin-bottom: 12px;
+    color: #aaa;
+    padding-left: 20px;
+    position: relative;
+}
+
+.contact-section li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #0066FF;
+    font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .sidebar {
@@ -746,6 +1001,29 @@ body {
     .quick-access {
         padding: 20px;
     }
+
+    .staff-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .staff-card {
+        padding: 15px 10px;
+    }
+
+    .staff-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+    }
+
+    .staff-name {
+        font-size: 13px;
+    }
+
+    .staff-page {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -799,5 +1077,32 @@ body {
 
     .lexique-definition {
         font-size: 12px;
+    }
+
+    .staff-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .staff-card {
+        padding: 12px 8px;
+    }
+
+    .staff-avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+
+    .staff-name {
+        font-size: 12px;
+    }
+
+    .staff-role {
+        font-size: 8px;
+        padding: 3px 8px;
+    }
+
+    .staff-discord {
+        font-size: 10px;
     }
 }

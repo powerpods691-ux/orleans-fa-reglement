@@ -56,12 +56,16 @@ function updateActiveLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
+    // Retirer tous les active
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Ajouter active au lien correspondant
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href.endsWith(currentPage) || (currentPage === '' && href === 'index.html')) {
             link.classList.add('active');
-        } else {
-            link.classList.remove('active');
         }
     });
 }

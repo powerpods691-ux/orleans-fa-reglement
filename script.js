@@ -1,19 +1,24 @@
-// Écran de chargement automatique
+// Écran de chargement uniquement au premier chargement de la page
+let isFirstLoad = true;
+
 window.addEventListener('load', function() {
-    const loaderContainer = document.getElementById('loaderContainer');
-    setTimeout(() => {
-        loaderContainer.style.display = 'none';
-    }, 3000);
+    if (isFirstLoad) {
+        const loaderContainer = document.getElementById('loaderContainer');
+        setTimeout(() => {
+            loaderContainer.style.display = 'none';
+            isFirstLoad = false;
+        }, 3000);
+    }
 });
 
-// Barre de défilement
+// Barre de défilement EN HAUT
 window.addEventListener('scroll', function() {
     const scrollProgress = document.getElementById('scrollProgress');
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    scrollProgress.style.transform = `scaleY(${scrollPercent / 100})`;
+    scrollProgress.style.scaleX = scrollPercent / 100;
 });
 
 // Navigation active

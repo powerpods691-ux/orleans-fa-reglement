@@ -15,15 +15,15 @@ window.addEventListener('load', function() {
     }
 });
 
-// Barre de défilement circulaire - avance au défilement
+// Barre de défilement simple EN HAUT A DROITE - avance au défilement
 window.addEventListener('scroll', function() {
     const scrollProgress = document.getElementById('scrollProgress');
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    // Rotation du cercle basée sur le défilement
-    scrollProgress.style.transform = `rotate(${(scrollPercent / 100) * 360}deg)`;
+    // Barre qui avance de gauche à droite
+    scrollProgress.style.width = scrollPercent + '%';
     
     if (scrollPercent > 0) {
         scrollProgress.classList.add('active');

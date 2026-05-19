@@ -5,11 +5,11 @@
 }
 
 :root {
-    --primary-color: #FF8C00;
+    --primary-color: #0066FF;
     --secondary-color: #1a1a1a;
     --text-light: #e0e0e0;
     --text-dark: #1a1a1a;
-    --accent-color: #ffa500;
+    --accent-color: #0080FF;
     --border-color: #333;
     --success: #27ae60;
     --danger: #e74c3c;
@@ -58,7 +58,7 @@ body {
     font-weight: 900;
     letter-spacing: 3px;
     margin-bottom: 30px;
-    background: linear-gradient(90deg, #FF8C00, #ffa500);
+    background: linear-gradient(90deg, #0066FF, #0080FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -89,7 +89,7 @@ body {
     content: '';
     display: block;
     height: 100%;
-    background: linear-gradient(90deg, transparent, #FF8C00, transparent);
+    background: linear-gradient(90deg, transparent, #0066FF, transparent);
     width: 100%;
     animation: loading 2s infinite;
 }
@@ -103,45 +103,33 @@ body {
     }
 }
 
-/* === SCROLL PROGRESS CIRCLE TOP RIGHT === */
+/* === SCROLL PROGRESS BAR TOP RIGHT === */
 .scroll-progress {
     position: fixed;
     top: 20px;
     right: 20px;
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 4px;
+    background-color: rgba(0, 102, 255, 0.2);
+    border-radius: 2px;
     z-index: 9998;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.scroll-progress.active {
-    opacity: 1;
-}
-
-.scroll-progress::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #FF8C00;
-    border-right-color: #ffa500;
+    overflow: hidden;
 }
 
 .scroll-progress::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 140, 0, 0.3);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0066FF, #0080FF);
+    border-radius: 2px;
+    transition: width 0.1s ease-out;
+}
+
+.scroll-progress.active {
+    opacity: 1;
 }
 
 /* Layout Principal */
@@ -191,7 +179,7 @@ body {
 }
 
 .version-info {
-    background-color: rgba(255, 140, 0, 0.1);
+    background-color: rgba(0, 102, 255, 0.1);
     padding: 12px;
     border-left: 3px solid var(--primary-color);
     margin-bottom: 30px;
@@ -233,13 +221,13 @@ body {
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 140, 0, 0.2);
+    background-color: rgba(0, 102, 255, 0.2);
     color: var(--primary-color);
     padding-left: 16px;
 }
 
 .nav-link.active {
-    background-color: rgba(255, 140, 0, 0.3);
+    background-color: rgba(0, 102, 255, 0.3);
     color: var(--primary-color);
     border-left: 3px solid var(--primary-color);
     padding-left: 12px;
@@ -285,7 +273,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -325,7 +313,7 @@ body {
 }
 
 .stat-box {
-    background-color: rgba(255, 140, 0, 0.1);
+    background-color: rgba(0, 102, 255, 0.1);
     padding: 20px;
     border-left: 3px solid var(--primary-color);
     border-radius: 4px;
@@ -542,12 +530,6 @@ body {
     .scroll-progress {
         top: 10px;
         right: 10px;
-        width: 60px;
-        height: 60px;
-    }
-
-    .scroll-progress::after {
-        width: 45px;
-        height: 45px;
+        width: 150px;
     }
 }

@@ -1,0 +1,59 @@
+// Écran de chargement automatique
+window.addEventListener('load', function() {
+    const loaderContainer = document.getElementById('loaderContainer');
+    setTimeout(() => {
+        loaderContainer.style.display = 'none';
+    }, 3000);
+});
+
+// Barre de défilement
+window.addEventListener('scroll', function() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    
+    scrollProgress.style.transform = `scaleY(${scrollPercent / 100})`;
+});
+
+// Navigation active
+document.addEventListener('DOMContentLoaded', function() {
+    updateActiveLink();
+    addScrollAnimations();
+});
+
+function updateActiveLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href.endsWith(currentPage) || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+function addScrollAnimations() {
+    const sections = document.querySelectorAll('.section, .quick-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'all 0.6s ease';
+        observer.observe(section);
+    });
+}

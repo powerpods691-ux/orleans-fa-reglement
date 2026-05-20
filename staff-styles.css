@@ -60,26 +60,27 @@
 .staff-card-hover-bar {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
-    animation: none;
-    transition: none;
+    transform: translateX(-50%);
 }
 
 .staff-card:hover .staff-card-hover-bar {
-    animation: expandBar 0.6s ease-in-out forwards;
+    animation: expandBar 0.8s ease-in-out 1 forwards;
 }
 
 @keyframes expandBar {
     0% {
         width: 0;
         left: 50%;
+        transform: translateX(-50%);
     }
     100% {
         width: 100%;
         left: 0;
+        transform: translateX(0);
     }
 }
 

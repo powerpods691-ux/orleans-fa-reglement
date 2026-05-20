@@ -75,15 +75,18 @@
 @keyframes expandBar {
     0% {
         width: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
     50% {
         width: 100%;
         left: 0;
+        transform: translateX(0);
     }
     100% {
         width: 0;
-        left: 100%;
+        left: 50%;
+        transform: translateX(50%);
     }
 }
 

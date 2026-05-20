@@ -68,7 +68,7 @@
 }
 
 .staff-card:hover .staff-card-hover-bar {
-    animation: expandBar 0.8s ease-in-out 1 forwards;
+    animation: expandBar 0.6s ease-out 1 forwards !important;
 }
 
 @keyframes expandBar {

@@ -559,7 +559,66 @@ body {
     font-weight: bold;
 }
 
-/* === LEXIQUE STYLES === */
+/* === LEXIQUE STYLES - NEW BLOCKS === */
+.lexique-cards {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.lex-card {
+    background-color: #0a1a3a;
+    border: 2px solid #003d99;
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lex-card:hover {
+    border-color: var(--primary-color);
+    background-color: #0d2452;
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+}
+
+.lex-card-header {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.lex-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lex-desc {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.lex-example {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.lex-example strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* === LEXIQUE OLD STYLES (Kept for compatibility) === */
 .lexique-container {
     display: grid;
     grid-template-columns: 250px 1fr;

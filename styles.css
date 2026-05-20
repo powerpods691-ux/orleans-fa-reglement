@@ -559,66 +559,100 @@ body {
     font-weight: bold;
 }
 
-/* === LEXIQUE STYLES - NEW BLOCKS === */
-.lexique-cards {
+/* === ARTICLE CARDS GRID === */
+.articles-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-bottom: 40px;
 }
 
-.lex-card {
-    background-color: #0a1a3a;
-    border: 2px solid #003d99;
-    border-radius: 8px;
+.article-card {
+    background-color: #0f0f0f;
+    border: 2px solid #333;
+    border-left: 4px solid var(--primary-color);
     padding: 25px;
+    border-radius: 6px;
     transition: all 0.3s ease;
-    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-.lex-card:hover {
+.article-card:hover {
     border-color: var(--primary-color);
-    background-color: #0d2452;
-    box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.2);
+    transform: translateY(-3px);
 }
 
-.lex-card-header {
-    font-size: 16px;
-    font-weight: 700;
+.article-label {
+    font-size: 11px;
     color: var(--primary-color);
-    margin-bottom: 12px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
-.lex-card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.article-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
-.lex-desc {
-    color: #ccc;
-    font-size: 15px;
-    line-height: 1.7;
-    margin: 0;
-}
-
-.lex-example {
-    color: #aaa;
+.article-content {
     font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-    padding-top: 8px;
-    border-top: 1px solid rgba(0, 102, 255, 0.2);
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
-.lex-example strong {
+.article-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.article-list li {
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 13px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.article-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: bold;
 }
 
-/* === LEXIQUE OLD STYLES (Kept for compatibility) === */
+.article-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 5px;
+}
+
+.article-tag.warning {
+    background-color: rgba(243, 156, 18, 0.15);
+    color: #f39c12;
+}
+
+.article-tag.success {
+    background-color: rgba(39, 174, 96, 0.15);
+    color: #27ae60;
+}
+
+/* === LEXIQUE STYLES === */
 .lexique-container {
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -709,45 +743,47 @@ body {
     gap: 15px;
 }
 
-.lexique-item {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 20px;
-    padding: 15px;
-    background-color: rgba(0, 102, 255, 0.05);
-    border-left: 3px solid #0066FF;
-    border-radius: 4px;
-    align-items: start;
+.lex-card {
+    background-color: #0a1a3a;
+    border: 2px solid #003d99;
+    border-radius: 6px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-.lexique-term {
+.lex-card:hover {
+    border-color: #0066FF;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+}
+
+.lex-card-header {
     font-weight: 700;
     color: #0066FF;
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: block;
 }
 
-.lexique-definition {
+.lex-card-body {
     color: #aaa;
+}
+
+.lex-desc {
     font-size: 14px;
     line-height: 1.6;
+    margin-bottom: 12px;
 }
 
-.lexique-subitem {
-    margin-top: 10px;
-    padding-top: 10px;
+.lex-example {
+    font-size: 13px;
+    color: #999;
+    padding-top: 12px;
     border-top: 1px solid rgba(0, 102, 255, 0.2);
 }
 
-.lexique-subitem strong {
-    color: #FFD700;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.lexique-subitem p {
-    color: #999;
-    font-size: 13px;
-    margin-left: 10px;
+.lex-example strong {
+    color: #0066FF;
 }
 
 /* === STAFF PAGE STYLES === */
@@ -979,8 +1015,8 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .lexique-container {
-        grid-template-columns: 200px 1fr;
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1031,30 +1067,8 @@ body {
         height: 3px;
     }
 
-    .lexique-container {
+    .articles-grid {
         grid-template-columns: 1fr;
-    }
-
-    .lexique-sidebar {
-        position: static;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 15px;
-    }
-
-    .lexique-sidebar ul {
-        display: contents;
-    }
-
-    .lexique-sidebar button {
-        padding: 8px;
-        font-size: 12px;
-    }
-
-    .lexique-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
     }
 
     .banner-subtitle {
@@ -1135,22 +1149,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .lexique-sidebar {
-        grid-template-columns: 1fr;
-    }
-
-    .lexique-item {
-        padding: 12px;
-    }
-
-    .lexique-term {
-        font-size: 12px;
-    }
-
-    .lexique-definition {
-        font-size: 12px;
-    }
-
     .staff-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
@@ -1176,5 +1174,17 @@ body {
 
     .staff-discord {
         font-size: 10px;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card {
+        padding: 20px;
+    }
+
+    .article-title {
+        font-size: 16px;
     }
 }

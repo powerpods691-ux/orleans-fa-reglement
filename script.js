@@ -24,34 +24,25 @@ window.addEventListener('scroll', function() {
     
     scrollProgress.style.width = scrollPercent + '%';
 
-    // Afficher/masquer le bouton scroll-to-top
+    // Scroll to Top Button
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    if (scrollToTopBtn) {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('show');
-        } else {
-            scrollToTopBtn.classList.remove('show');
-        }
+    if (scrollTop > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
     }
 });
 
-// Bouton Scroll to Top
-document.addEventListener('DOMContentLoaded', function() {
-    // Créer le bouton s'il n'existe pas
-    if (!document.getElementById('scrollToTopBtn')) {
-        const scrollToTopBtn = document.createElement('button');
-        scrollToTopBtn.id = 'scrollToTopBtn';
-        scrollToTopBtn.className = 'scroll-to-top';
-        document.body.appendChild(scrollToTopBtn);
-
-        scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+// Scroll to Top Button functionality
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    }
-});
+    });
+}
 
 // Menu hamburger mobile
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');

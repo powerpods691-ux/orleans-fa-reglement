@@ -23,51 +23,6 @@ body {
     line-height: 1.6;
 }
 
-/* === SCROLL TO TOP BUTTON === */
-.scroll-to-top {
-    position: fixed;
-    bottom: 40px;
-    left: 40px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #0066FF, #0080FF);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
-    transition: all 0.3s ease;
-}
-
-.scroll-to-top.show {
-    display: flex;
-}
-
-.scroll-to-top:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(0, 102, 255, 0.6);
-}
-
-.scroll-to-top::before {
-    content: '↑';
-    font-size: 28px;
-    color: white;
-    font-weight: bold;
-    animation: floatArrow 1.5s ease-in-out infinite;
-}
-
-@keyframes floatArrow {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
 /* === LOADER SCREEN === */
 .loader-container {
     position: fixed;
@@ -161,6 +116,55 @@ body {
     background: linear-gradient(90deg, #0066FF, #0080FF);
     z-index: 9998;
     transition: width 0.1s ease-out;
+}
+
+/* === SCROLL TO TOP BUTTON === */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0066FF, #0080FF);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+#scrollToTopBtn.show {
+    display: flex;
+}
+
+#scrollToTopBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+}
+
+#scrollToTopBtn:active {
+    transform: scale(0.95);
+}
+
+#scrollToTopBtn::before {
+    content: '↑';
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    animation: floatArrow 1.5s ease-in-out infinite;
+}
+
+@keyframes floatArrow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 /* Layout Principal */
@@ -1064,15 +1068,15 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .scroll-to-top {
+    #scrollToTopBtn {
         bottom: 30px;
-        left: 30px;
+        right: 30px;
         width: 45px;
         height: 45px;
     }
 
-    .scroll-to-top::before {
-        font-size: 24px;
+    #scrollToTopBtn::before {
+        font-size: 20px;
     }
 }
 
@@ -1167,14 +1171,14 @@ body {
         padding: 20px;
     }
 
-    .scroll-to-top {
-        bottom: 20px;
-        left: 20px;
-        width: 40px;
-        height: 40px;
+    #scrollToTopBtn {
+        bottom: 25px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
     }
 
-    .scroll-to-top::before {
+    #scrollToTopBtn::before {
         font-size: 20px;
     }
 }
@@ -1255,14 +1259,14 @@ body {
         font-size: 16px;
     }
 
-    .scroll-to-top {
-        bottom: 15px;
-        left: 15px;
+    #scrollToTopBtn {
+        bottom: 20px;
+        right: 20px;
         width: 40px;
         height: 40px;
     }
 
-    .scroll-to-top::before {
-        font-size: 20px;
+    #scrollToTopBtn::before {
+        font-size: 18px;
     }
 }

@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <!-- Bouton Scroll to Top -->
-    <div class="scroll-to-top" id="scrollToTop">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-    </div>
-
     <div class="loader-container" id="loaderContainer">
         <div class="loader">
             <div class="loader-text">ORLÉANS FA - FIVEM</div>
@@ -22,6 +15,8 @@
     </div>
 
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <button id="scrollToTopBtn"></button>
 
     <div class="container">
         <aside class="sidebar">
@@ -167,43 +162,43 @@
                         <span class="article-label">SANCTION • ART. 07</span>
                         <h3 class="article-title">Spam & Flood</h3>
                         <div class="article-content">
-                            Le spam excessif en chat entraîne des sanctions immédiates.
+                            Spam massif de messages ou de caractères en chat ou Discord.
                         </div>
                         <ul class="article-list">
-                            <li>1er avertissement : modération du chat</li>
-                            <li>2e : mute temporaire (1h)</li>
-                            <li>3e : mute 24h + avertissement</li>
-                            <li>Répétition : ban temporaire possible</li>
+                            <li>1ère offense : Avertissement + Mute 1h</li>
+                            <li>2ème offense : Mute 24h</li>
+                            <li>3ème offense : Ban 7j</li>
+                            <li>Récidive grave : Ban permanent</li>
                         </ul>
-                        <span class="article-tag warning">AVERTISSEMENT</span>
+                        <span class="article-tag warning">AVERTISSEMENT PROGRESSIF</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 08</span>
                         <h3 class="article-title">Langage Offensant</h3>
                         <div class="article-content">
-                            Les insultes et langage offensant sont interdits sans exception.
+                            Utilisation de langage extrêmement offensant ou discriminatoire.
                         </div>
                         <ul class="article-list">
-                            <li>1er : avertissement + mute 30min</li>
-                            <li>2e : mute 2h + avertissement</li>
-                            <li>3e : ban 24h</li>
-                            <li>Langage extrême : ban direct possible</li>
+                            <li>Mute immédiat 24h</li>
+                            <li>Ban 7j si récidive rapide</li>
+                            <li>Ban permanent pour discours de haine</li>
+                            <li>Aucune tolérance accordée</li>
                         </ul>
-                        <span class="article-tag">SANCTIONNÉ</span>
+                        <span class="article-tag danger">MUTE + BAN</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 09</span>
                         <h3 class="article-title">Harcèlement & Bullying</h3>
                         <div class="article-content">
-                            Le harcèlement systématique d'un joueur mène à des bans directs.
+                            Harcèlement ciblé ou bullying envers un ou plusieurs joueurs.
                         </div>
                         <ul class="article-list">
-                            <li>Harcèlement léger : 24h ban</li>
-                            <li>Harcèlement grave : 7j ban</li>
-                            <li>Harcèlement extrême : ban permanent</li>
-                            <li>Preuve documentée requise</li>
+                            <li>Ban 14j immédiat pour premier cas</li>
+                            <li>Ban permanent après 2ème offense</li>
+                            <li>Enquête approfondie effectuée</li>
+                            <li>Témoignages collectés</li>
                         </ul>
                         <span class="article-tag danger">BAN DIRECT</span>
                     </div>
@@ -212,28 +207,28 @@
                         <span class="article-label">SANCTION • ART. 10</span>
                         <h3 class="article-title">Publicités & Liens Suspects</h3>
                         <div class="article-content">
-                            Le partage de liens non autorisés est strictement interdit.
+                            Partage de publicités ou liens suspects (phishing, virus, etc.).
                         </div>
                         <ul class="article-list">
-                            <li>Publicités externes : ban 7j</li>
-                            <li>Liens malveillants : ban 14j</li>
-                            <li>Phishing : ban permanent</li>
-                            <li>Contenu viral : mute 24h</li>
+                            <li>Ban 7j immédiat</li>
+                            <li>Récidive : Ban permanent</li>
+                            <li>Compte rapporté aux modérateurs Discord</li>
+                            <li>Lien blacklisté du serveur</li>
                         </ul>
-                        <span class="article-tag danger">BAN</span>
+                        <span class="article-tag danger">BAN 7J-14J</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 11</span>
                         <h3 class="article-title">Abus de Commandes Staff</h3>
                         <div class="article-content">
-                            L'abus de pouvoirs staff entraîne la révocation immédiate.
+                            Utilisation abusive ou mauvaise des commandes staff/admin.
                         </div>
                         <ul class="article-list">
-                            <li>Abus léger : avertissement + révocation</li>
-                            <li>Abus modéré : ban 30j</li>
-                            <li>Abus grave : ban permanent</li>
-                            <li>Révocation définitive du poste</li>
+                            <li>Révocation immédiate du staff</li>
+                            <li>Rapport interne établi</li>
+                            <li>Ban possible sur le compte principal</li>
+                            <li>Rétrogradation définitive</li>
                         </ul>
                         <span class="article-tag danger">RÉVOCATION</span>
                     </div>
@@ -242,88 +237,88 @@
                         <span class="article-label">SANCTION • ART. 12</span>
                         <h3 class="article-title">Usurpation d'Identité Staff</h3>
                         <div class="article-content">
-                            Se faire passer pour un membre du staff est une infraction grave.
+                            Se faire passer pour un membre du staff ou un modérateur.
                         </div>
                         <ul class="article-list">
-                            <li>1ère tentative : ban 14j</li>
-                            <li>2e tentative : ban 30j</li>
-                            <li>3e tentative : ban permanent</li>
-                            <li>Investigation complète requise</li>
+                            <li>Ban 14j première offense</li>
+                            <li>Ban permanent après 2ème tentative</li>
+                            <li>Changement de pseudo obligatoire</li>
+                            <li>Surveillance accrue du compte</li>
                         </ul>
-                        <span class="article-tag danger">BAN</span>
+                        <span class="article-tag danger">BAN PROGRESSIF</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 13</span>
                         <h3 class="article-title">Faux Rapports & Accusations</h3>
                         <div class="article-content">
-                            Faire de faux rapports entraîne des sanctions sévères.
+                            Faire de faux rapports ou accuser gratuitement un joueur.
                         </div>
                         <ul class="article-list">
-                            <li>Faux rapport simple : avertissement</li>
-                            <li>Faux rapport grave : 7j ban</li>
-                            <li>Abus répété : 30j ban</li>
-                            <li>Manipulation systématique : ban permanent</li>
+                            <li>Avertissement + Mute 24h</li>
+                            <li>Ban 7j après 2ème faux rapport</li>
+                            <li>Ban permanent pour abus systématique</li>
+                            <li>Peut affecter réputation du joueur</li>
                         </ul>
-                        <span class="article-tag warning">AVERTISSEMENT</span>
+                        <span class="article-tag warning">AVERTISSEMENT-BAN</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 14</span>
                         <h3 class="article-title">Exploitation d'Exploits</h3>
                         <div class="article-content">
-                            L'utilisation volontaire d'exploits est punie sévèrement.
+                            Utilisation volontaire de bugs ou exploits du serveur.
                         </div>
                         <ul class="article-list">
-                            <li>Signalement volontaire : aucune sanction</li>
-                            <li>Utilisation légère : 24h ban</li>
-                            <li>Utilisation répétée : ban 7j</li>
-                            <li>Exploitation grave : ban 30j</li>
+                            <li>Ban 24h avertissement</li>
+                            <li>Ban 7j pour abus répété</li>
+                            <li>Ban 30j pour abus grave/économique</li>
+                            <li>Confiscation des biens mal acquis</li>
                         </ul>
-                        <span class="article-tag danger">BAN</span>
+                        <span class="article-tag">BAN 24H-30J</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 15</span>
                         <h3 class="article-title">AFK Farming & Inactivité</h3>
                         <div class="article-content">
-                            L'AFK farming ou rester inactif longtemps est interdit.
+                            Rester AFK pour farmer de l'argent ou de l'exp sans jouer.
                         </div>
                         <ul class="article-list">
-                            <li>1er AFK : kick + avertissement</li>
-                            <li>2e AFK : ban 6h</li>
-                            <li>3e AFK : ban 24h</li>
-                            <li>Farming systématique : ban 7j</li>
+                            <li>Kick automatique du serveur</li>
+                            <li>Perte de l'argent/items gagné</li>
+                            <li>Ban temporaire 24h après 3 fois</li>
+                            <li>Ban permanent pour farming systématique</li>
                         </ul>
-                        <span class="article-tag warning">AVERTISSEMENT</span>
+                        <span class="article-tag">KICK-BAN</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 16</span>
                         <h3 class="article-title">Violation du NLR (New Life Rule)</h3>
                         <div class="article-content">
-                            Ne pas respecter le NLR entraîne des sanctions RP et OOC.
+                            Ignorer la règle du NLR après une mort RP et revenir immédiatement.
                         </div>
                         <ul class="article-list">
-                            <li>1ère violation : avertissement</li>
-                            <li>2e violation : 24h ban</li>
-                            <li>3e violation : 7j ban</li>
-                            <li>Violation systématique : ban permanent</li>
+                            <li>Avertissement + Kick du serveur</li>
+                            <li>Ban 24h après 2ème violation</li>
+                            <li>Ban 7j pour violation grave</li>
+                            <li>Récidive : Ban permanent</li>
                         </ul>
-                        <span class="article-tag">SANCTIONNÉ</span>
+                        <span class="article-tag warning">AVERTISSEMENT-BAN</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 17</span>
                         <h3 class="article-title">RDM & PowerGaming</h3>
                         <div class="article-content">
-                            Le RDM et PowerGaming reçoivent des sanctions progressives.
+                            Random Death Match ou imposition d'actions sans consentement.
                         </div>
                         <ul class="article-list">
-                            <li>1ère infraction : avertissement</li>
-                            <li>2e : 24h ban</li>
-                            <li>3e : 7j ban</li>
-                            <li>Répétition : ban permanent possible</li>
+                            <li>Kick immédiat + Avertissement</li>
+                            <li>Ban 24h après 2ème infraction</li>
+                            <li>Ban 7j pour RDM répété</li>
+                            <li>Ban permanent pour trolling flagrant</li>
                         </ul>
                         <span class="article-tag danger">SANCTION RAPIDE</span>
                     </div>
@@ -332,58 +327,58 @@
                         <span class="article-label">SANCTION • ART. 18</span>
                         <h3 class="article-title">Metagaming & Cheating</h3>
                         <div class="article-content">
-                            Le metagaming volontaire reçoit des bans temporaires puis permanents.
+                            Utilisation d'informations OOC ou de cheats en jeu.
                         </div>
                         <ul class="article-list">
-                            <li>Metagaming simple : avertissement</li>
-                            <li>Metagaming avéré : 7j ban</li>
-                            <li>Cheating/Hacking : ban permanent</li>
-                            <li>Cooperation requise : révision rapide</li>
+                            <li>Ban immédiat et permanent</li>
+                            <li>Aucun appel accepté</li>
+                            <li>Compte rapporté aux autorités</li>
+                            <li>Tous les alts bannis aussi</li>
                         </ul>
                         <span class="article-tag danger">BAN PERMANENT</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 19</span>
-                        <h3 class="article-title">Discord Violation</h3>
+                        <h3 class="article-title">Violation Discord</h3>
                         <div class="article-content">
-                            Les violations sur le Discord reçoivent les mêmes sanctions que le serveur.
+                            Violation des règles Discord du serveur.
                         </div>
                         <ul class="article-list">
-                            <li>1er spam : mute 1h</li>
-                            <li>Insultes : mute 24h</li>
-                            <li>Harcèlement : ban Discord permanent</li>
-                            <li>Ban Discord = Ban serveur possible</li>
+                            <li>Mute Discord 24h</li>
+                            <li>Ban Discord 7j pour récidive</li>
+                            <li>Ban du serveur si grave</li>
+                            <li>Rapporté aux admins Discord</li>
                         </ul>
-                        <span class="article-tag">SANCTIONNÉ</span>
+                        <span class="article-tag warning">MUTE-BAN</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 20</span>
-                        <h3 class="article-title">Modération Immédiate</h3>
+                        <h3 class="article-title">Comportement Toxique</h3>
                         <div class="article-content">
-                            Certaines infractions reçoivent une modération immédiate sans avertissement.
+                            Comportement général toxique ou sabotage de l'atmosphère.
                         </div>
                         <ul class="article-list">
-                            <li>Langage extrêmement offensant : ban direct</li>
-                            <li>Hacking/Cheating : ban permanent direct</li>
-                            <li>Terrorism ou menaces : ban permanent</li>
-                            <li>Doxxing : ban permanent + signalement</li>
+                            <li>Avertissement premier cas</li>
+                            <li>Mute/Ban temporaire après</li>
+                            <li>Ban prolongé si toxicité grave</li>
+                            <li>Changement d'attitude requis</li>
                         </ul>
-                        <span class="article-tag danger">IMMÉDIAT</span>
+                        <span class="article-tag warning">AVERTISSEMENT</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 21</span>
                         <h3 class="article-title">Rédemption & Débannissement</h3>
                         <div class="article-content">
-                            Les joueurs bannis peuvent demander une rédemption sous certaines conditions.
+                            Procédure pour demander un débannissement après sanction.
                         </div>
                         <ul class="article-list">
-                            <li>Ban 24h : débannissement direct après</li>
-                            <li>Ban 7j : appel possible après 3j</li>
-                            <li>Ban 30j : appel possible après 2 semaines</li>
-                            <li>Ban permanent : appel après 3 mois minimum</li>
+                            <li>Appel possible après ban temporaire</li>
+                            <li>Ban permanent non débannissable</li>
+                            <li>Demande argumentée requise</li>
+                            <li>Délai d'attente respecté</li>
                         </ul>
                         <span class="article-tag success">POSSIBLE</span>
                     </div>
@@ -392,15 +387,15 @@
                         <span class="article-label">SANCTION • ART. 22</span>
                         <h3 class="article-title">Documentation & Transparence</h3>
                         <div class="article-content">
-                            Toutes les sanctions sont documentées et justifiées clairement.
+                            Toutes les sanctions sont documentées et justifiées.
                         </div>
                         <ul class="article-list">
-                            <li>Raison de la sanction communiquée</li>
-                            <li>Preuve fournie si demandée</li>
-                            <li>Durée clairement indiquée</li>
-                            <li>Droit d'appel expliqué</li>
+                            <li>Raison de la sanction affichée</li>
+                            <li>Durée spécifiée clairement</li>
+                            <li>Logs conservés du incident</li>
+                            <li>Accessible au joueur sanctionné</li>
                         </ul>
-                        <span class="article-tag success">TRANSPARENCE</span>
+                        <span class="article-tag success">OBLIGATOIRE</span>
                     </div>
 
                     <div class="article-card">
@@ -410,27 +405,27 @@
                             Le staff peut réduire une sanction selon les circonstances.
                         </div>
                         <ul class="article-list">
-                            <li>Première infraction : réduction possible</li>
-                            <li>Joueur coopératif : réduction envisageable</li>
-                            <li>Contexte particulier : étude au cas par cas</li>
-                            <li>Staff discretionnaire final</li>
+                            <li>Première offense souvent pardonné</li>
+                            <li>Comportement exemplaire après</li>
+                            <li>Remords sincère du joueur</li>
+                            <li>Contexte spécifique considéré</li>
                         </ul>
-                        <span class="article-tag success">POSSIBLE</span>
+                        <span class="article-tag success">RÉDUCTION POSSIBLE</span>
                     </div>
 
                     <div class="article-card">
                         <span class="article-label">SANCTION • ART. 24</span>
                         <h3 class="article-title">Aggravantes & Alourdie</h3>
                         <div class="article-content">
-                            Les circonstances aggravantes alourdissent les sanctions.
+                            Certains facteurs rendent les sanctions plus lourdes.
                         </div>
                         <ul class="article-list">
-                            <li>Récidiviste : +50% de la sanction</li>
-                            <li>Comportement arrogant : doublement possible</li>
-                            <li>Multiple infractions : cumul des bans</li>
-                            <li>Refus de respect : ban permanent possible</li>
+                            <li>Récidive rapide aggravante</li>
+                            <li>Comportement délibéré aggravant</li>
+                            <li>Abus de position staff grave</li>
+                            <li>Sanction doublée ou ban permanent</li>
                         </ul>
-                        <span class="article-tag danger">AGGRAVANT</span>
+                        <span class="article-tag danger">AGGRAVATION</span>
                     </div>
                 </div>
 

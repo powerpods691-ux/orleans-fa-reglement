@@ -24,27 +24,34 @@ window.addEventListener('scroll', function() {
     
     scrollProgress.style.width = scrollPercent + '%';
 
-    // Bouton Scroll to Top
-    const scrollToTopBtn = document.getElementById('scrollToTop');
+    // Afficher/masquer le bouton scroll-to-top
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (scrollToTopBtn) {
         if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('visible');
+            scrollToTopBtn.classList.add('show');
         } else {
-            scrollToTopBtn.classList.remove('visible');
+            scrollToTopBtn.classList.remove('show');
         }
     }
 });
 
-// Fonction pour scroll to top
-const scrollToTopBtn = document.getElementById('scrollToTop');
-if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+// Bouton Scroll to Top
+document.addEventListener('DOMContentLoaded', function() {
+    // Créer le bouton s'il n'existe pas
+    if (!document.getElementById('scrollToTopBtn')) {
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.id = 'scrollToTopBtn';
+        scrollToTopBtn.className = 'scroll-to-top';
+        document.body.appendChild(scrollToTopBtn);
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
-}
+    }
+});
 
 // Menu hamburger mobile
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');

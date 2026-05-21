@@ -23,7 +23,26 @@ window.addEventListener('scroll', function() {
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
     scrollProgress.style.width = scrollPercent + '%';
+
+    // Afficher/Masquer le bouton retour en haut
+    const backToTop = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
 });
+
+// Bouton retour en haut
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // Menu hamburger mobile
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');

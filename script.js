@@ -24,19 +24,21 @@ window.addEventListener('scroll', function() {
     
     scrollProgress.style.width = scrollPercent + '%';
 
-    // Afficher/Masquer le bouton retour en haut
-    const backToTop = document.getElementById('backToTop');
-    if (window.scrollY > 300) {
-        backToTop.classList.add('show');
-    } else {
-        backToTop.classList.remove('show');
+    // Bouton Scroll to Top
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (scrollToTopBtn) {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
     }
 });
 
-// Bouton retour en haut
-const backToTop = document.getElementById('backToTop');
-if (backToTop) {
-    backToTop.addEventListener('click', function() {
+// Fonction pour scroll to top
+const scrollToTopBtn = document.getElementById('scrollToTop');
+if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'

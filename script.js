@@ -22,14 +22,18 @@ window.addEventListener('scroll', function() {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     
-    scrollProgress.style.width = scrollPercent + '%';
+    if (scrollProgress) {
+        scrollProgress.style.width = scrollPercent + '%';
+    }
 
     // Scroll to Top Button
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    if (scrollTop > 300) {
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
+    if (scrollToTopBtn) {
+        if (scrollTop > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
     }
 });
 

@@ -38,8 +38,19 @@ window.addEventListener('scroll', function() {
 });
 
 // Scroll to Top Button functionality
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-if (scrollToTopBtn) {
+function initScrollToTopButton() {
+    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    if (!scrollToTopBtn) {
+        scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.id = 'scrollToTopBtn';
+        document.body.prepend(scrollToTopBtn);
+    }
+
+    scrollToTopBtn.setAttribute('type', 'button');
+    scrollToTopBtn.setAttribute('title', 'Retour en haut');
+    scrollToTopBtn.setAttribute('aria-label', 'Retour en haut');
+
     scrollToTopBtn.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
@@ -70,6 +81,7 @@ if (mobileMenuToggle) {
 
 // Navigation active
 document.addEventListener('DOMContentLoaded', function() {
+    initScrollToTopButton();
     updateActiveLink();
     addScrollAnimations();
     initLexique();

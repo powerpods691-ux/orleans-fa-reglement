@@ -1,4 +1,4 @@
-// Animations pour les cartes staff
+﻿// Animations pour les cartes staff
 document.addEventListener('DOMContentLoaded', function() {
     const staffCards = document.querySelectorAll('.staff-card');
     

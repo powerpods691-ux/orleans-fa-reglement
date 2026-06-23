@@ -1,4 +1,4 @@
-// Écran de chargement uniquement au premier chargement
+﻿// Écran de chargement uniquement au premier chargement
 let isFirstLoad = sessionStorage.getItem('firstLoadDone') === null;
 
 window.addEventListener('load', function() {
